@@ -27,5 +27,24 @@ Tentative Topics (to be broken down by schedule)
   - Proptypes
   - Pure Components
   - Component Documentation
+  - `React.memo` for non-dependent child components
+  - CSS-in-JS?
   - eslint configuration
+  - Import Order (Built-In, External, Internal)
+  - Naming conventions: PascalCase for components, camelCase for instances. CamelCase for props.
+  - Dont use reserved props (like className)
+  - Double Quotes (JSX) vs Single Quotes (regular JS)
+  - Multiple return lines wrapped in parenthesis
+  - Self-closing tags for components that do not have children
+  - Webpack features (like tree shaking)
+  - Working with SCSS
+
+#### HTML5 Best Practices
+  - alt tags in images (non-react)
+  - Using form `onSubmit` with `required` and html5 validators
+
+#### ECMAScript Features
+  - Object Destructuring (props, views)
+  - Template literals
+  - Implicit return with arrow functions
 
