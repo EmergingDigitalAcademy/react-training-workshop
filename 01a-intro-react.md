@@ -177,6 +177,7 @@ To learn more, check out the full [list of Proptypes](https://reactjs.org/docs/t
 ### React.memo for non-dependent child components (new)
 ### React Fragments and JSX Transform (new)
 ### Portals (new)
+### Refs (new)
 ### Context API (new)
 ### DOMAttributes (new)
 ### Error Boundaries (new)
