@@ -67,8 +67,8 @@ Tentative Topics (to be broken down by schedule)
   - 10:00am-11:00am Managing local state (`useState`)
   - 11:00am-12:00pm Working with the react lifecycle (`useEffect`)  
   - 12:00pm-1:00pm Lunch
-  - 1:00pm-2:00pm Intro to Redux (reducers, store)
-  - 2:00pm-3:00pm Intro to Redux (actions, constants, useDispatch, useSelector, custom hooks, shoutout to reselector)
+  - 1:00pm-2:00pm Intro to Redux (reducers, store, actions, constants)
+  - 2:00pm-3:00pm Intro to Redux (useDispatch, useSelector, custom hooks, redux-sagas, shoutout to reselector)
   - 3:00pm-4:00pm Practice Assignment 2 (practice with redux)
 
 ### Day 3
@@ -77,8 +77,8 @@ Tentative Topics (to be broken down by schedule)
   - 10:00am-11:00am Using `useParams` with `useEffect`, `useHistory`
   - 11:00am-12:00pm Practice Assignment 3 (practice with react router)
   - 12:00pm-1:00pm Lunch
-  - 1:00pm-2:00pm Intro to Testing (component testing)
-  - 2:00pm-3:00pm Testing Continued
+  - 1:00pm-2:00pm Intro to Testing (component testing, jest, `act`, etc)
+  - 2:00pm-3:00pm Testing Continued (react router, redux, coverage testing, etc)
   - 3:00pm-4:00pm Practice Assignment 4 (component testing)
 
 ### Day 4
