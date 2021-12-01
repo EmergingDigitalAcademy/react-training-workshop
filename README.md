@@ -64,8 +64,8 @@ Tentative Topics (to be broken down by schedule)
   - 8:00am-8:30am Ice Breaker & Review
   - 8:30am-9:30am Review of Functional Components
   - 9:30am-10:00am Intro to Hooks
-  - 10:00am-11:00am Managing local state (useState)
-  - 11:00am-12:00pm Working with the react lifecycle (useEffect)  
+  - 10:00am-11:00am Managing local state (`useState`)
+  - 11:00am-12:00pm Working with the react lifecycle (`useEffect`)  
   - 12:00pm-1:00pm Lunch
   - 1:00pm-2:00pm Intro to Redux (reducers, store)
   - 2:00pm-3:00pm Intro to Redux (actions, constants, useDispatch, useSelector, custom hooks, shoutout to reselector)
