@@ -23,6 +23,7 @@ Tentative Topics (to be broken down by schedule)
   - 16.8 -> 16.9 -> 16.13
     - deprecation warnings, prep for major upgrade, async `act`
   - 16.x -> 17.x
+
 #### React Best Practices
   - Proptypes
   - Pure Components
@@ -48,3 +49,47 @@ Tentative Topics (to be broken down by schedule)
   - Template literals
   - Implicit return with arrow functions
 
+## Tentative Schedule
+
+### Day 1
+  - 8:00am-8:30am Ice Breaker
+  - 8:30am-10:00am Overview: CRA, JSX, ECAMAScript2021, react best practices, eslint configuration, naming conventions
+  - 10:00am-12:00pm What's new with React? Portals, Fragments, Memo, StrictMode, context API, JSX Transform
+  - 12:00pm-1:00pm Lunch
+  - 1:00pm-2:00pm Upgrade Path to React 17 (Up to 15.6)
+  - 2:00pm-3:00pm Upgrade Path to React 17 (Up to 16.13)
+  - 3:00pm-4:00pm Practice Assignment 1 (upgrading a react app)
+
+### Day 2
+  - 8:00am-8:30am Ice Breaker & Review
+  - 8:30am-9:30am Review of Functional Components
+  - 9:30am-10:00am Intro to Hooks
+  - 10:00am-11:00am Managing local state (useState)
+  - 11:00am-12:00pm Working with the react lifecycle (useEffect)  
+  - 12:00pm-1:00pm Lunch
+  - 1:00pm-2:00pm Intro to Redux (reducers, store)
+  - 2:00pm-3:00pm Intro to Redux (actions, constants, useDispatch, useSelector, custom hooks, shoutout to reselector)
+  - 3:00pm-4:00pm Practice Assignment 2 (practice with redux)
+
+### Day 3
+  - 8:00am-8:30am Ice Breaker & Review
+  - 8:30am-10:00am Intro to React Router (declarative routing, HashRouter, NavLink)
+  - 10:00am-11:00am Using `useParams` with `useEffect`, `useHistory`
+  - 11:00am-12:00pm Practice Assignment 3 (practice with react router)
+  - 12:00pm-1:00pm Lunch
+  - 1:00pm-2:00pm Intro to Testing (component testing)
+  - 2:00pm-3:00pm Testing Continued
+  - 3:00pm-4:00pm Practice Assignment 4 (component testing)
+
+### Day 4
+  - 8:00am-8:30am Ice Breaker & Review
+  - 8:30am-10:00am Intro to Continuous Integration
+  - 10:00am-12:00pm Jenkins, Deployment, etc.
+  - 12:00pm-1:00pm Lunch
+  - 1:00pm-2:00pm Wrapup & Testing Review
+  - 2:00pm-4:00pm Workshop Time (talk through local project strategy)
+
+### Day 5
+  - 8:00am - 4:00pm: Misc workshop or project kickoff
+  - 8:00am - 3:00pm: Project Work. Break into teams of 2-3, build project together.
+  - 3:00pm - 4:00pm: Present Project Work. Debrief.
