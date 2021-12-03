@@ -181,7 +181,7 @@ Functional components are nice because they're simple. They take props as an arg
 The following components are equivalent:
 
 ``` javascript
-import { Component } from React;
+import { Component } from 'react';
 
 class Header extends Component {
    render() {
@@ -268,7 +268,7 @@ Here we can see that the `<Movie />` component is consistently given the same pr
 To set up memoization, just wrap the function with `React.memo`:
 
 ```
-import { memo } from 'React';
+import { memo } from 'react';
 const Movie = ({ title }) => (
   <h1>{title}</h1>
 );
@@ -278,13 +278,210 @@ const MemoizedMovie = memo(Movie);
 ```
 
 ### React Fragments and JSX Transform (new)
-### Portals (new)
-### Refs (new)
-### DOMAttributes (new)
-### Error Boundaries (new)
-### StrictMode (new)
-### React Profiler DevTools
-### Component Documentation
+
+JSX Fragments are awesome. Traditionally with JSX a component must always return a single element with an unlimited number of children. React has introduced several improvements to help with the case where a component wants to return several JSX elements but it is not desirable to wrap them in a DOM element like a `<div>` or `<span>`. 
+
+This is not legal in JSX:
+``` javascript
+const Header = () => (
+  <h1>Welcome to my site</h1>
+  <h2>We're glad you're here!</h2>
+);
+```
+
+Traditionally you would have to wrap these in some DOM element that you may not actually want to have on the page:
+``` javascript
+const Header = () => (
+  <section>
+    <h1>Welcome to my site</h1>
+    <h2>We're glad you're here!</h2>
+  </section>
+);
+```
+
+But maybe you don't actually want to have a `<section>` there. JSX Fragments save the day! They provide a JSX element that does not map to a DOM element.
+``` javascript
+const Header = () => (
+  <React.Fragment>
+    <h1>Welcome to my site</h1>
+    <h2>We're glad you're here!</h2>
+  </React.Fragment>
+);
+```
+
+Or even better:
+
+``` javascript
+const Header = () => (
+  <>
+    <h1>Welcome to my site</h1>
+    <h2>We're glad you're here!</h2>
+  </>
+);
+```
+
+If you need to add a `key` prop to a Fragment, you must use the `<React.Fragment>` syntax (short-hand is not compatible with props).
+
+### Portals
+
+Portals are a new feature that, simply put, allow components to render children that are mounted somewhere else on the DOM. They're really useful for generating modals, because a child component may want to pop-up a modal, but that modal's html should be on the top-level DOM so it can cleanly overflow the entire page without having to rely on CSS shenanigans.
+
+The other advantage is that browser events propagate up through the React component tree as expected, even though from the Browser DOM's point of view, the child component is not actually rendered inside the parent element.
+
+Given the following HTML:
+``` html
+<html>
+  <body>
+    <div id="app-root"></div>
+    <div id="modal-root"></div>
+  </body>
+</html>
+```
+
+``` javascript
+const appRoot = document.getElementById('app-root');
+const modalRoot = document.getElementById('body'); // 'body' is the default if not otherwise specified when creating a portal
+
+class Modal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.el = document.createElement('div');
+  }
+
+  componentDidMount() {
+    // The portal element is inserted in the DOM tree after
+    // the Modal's children are mounted, meaning that children
+    // will be mounted on a detached DOM node.
+    modalRoot.appendChild(this.el);
+  }
+
+  componentWillUnmount() {
+    modalRoot.removeChild(this.el);
+  }
+
+  render() {
+    return ReactDOM.createPortal(
+      this.props.children,
+      this.el
+    );
+  }
+}
+
+class Parent extends React.Component {
+  state = {clicks: 0};
+
+  handleClick = () => {
+    // This will fire when the button in Child is clicked,
+    // updating Parent's state, even though button
+    // is not direct descendant in the DOM.
+    this.setState(state => ({
+      clicks: state.clicks + 1
+    }));
+  }
+
+  render = () => (
+      <div onClick={this.handleClick}>
+        <p>Number of clicks: {this.state.clicks}</p>
+        <Modal>
+          <button>Click</button>
+        </Modal>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<Parent />, appRoot);
+```
+
+### Refs (`useRef` and `forwardRef`)
+
+Refs are used to track an instance of an actual DOM element across renders (even if the DOM element is destroyed and re-created). This is useful to expose browser API calls (like `autofocus` or `media controls`) to be used directly by a component.
+
+To create and track a ref, simply call `createRef` or the `useRef()` hook with functional components, and pin it to a rendered component with the `ref` prop.
+
+``` javascript
+class CustomTextInput extends React.Component {
+  constructor(props) {
+    super(props);
+    // create a ref to store the textInput DOM element
+    this.textInput = React.createRef();
+  }
+
+  focusTextInput = () => {
+    // Explicitly focus the text input using the raw DOM API
+    // Note: we're accessing "current" to get the DOM node
+    this.textInput.current.focus();
+  }
+
+  render() {
+    // tell React that we want to associate the <input> ref
+    // with the `textInput` that we created in the constructor
+    return (
+      <div>
+        <input
+          type="text"
+          ref={this.textInput} />
+        <input
+          type="button"
+          value="Focus the text input"
+          onClick={this.focusTextInput}
+        />
+      </div>
+    );
+  }
+}
+```
+
+Functional equivalent with the `useRef` hook:
+``` javascript
+import { useRef } from 'react';
+
+function CustomTextInput(props) {
+  // textInput must be declared here so the ref can refer to it
+  const textInput = useRef(null);
+  
+  function handleClick() {
+    textInput.current.focus();
+  }
+
+  return (
+    <div>
+      <input
+        type="text"
+        ref={textInput} />
+      <input
+        type="button"
+        value="Focus the text input"
+        onClick={handleClick}
+      />
+    </div>
+  );
+}
+```
+
+There are some other special cases (like accessing tagging a functional component with a `ref` which isnt possible). Check out the [docs](https://reactjs.org/docs/refs-and-the-dom.html).
+
+You can also forward references between components using the special `forwardRef` API.
+
+### Error Boundaries
+### StrictMode
+
+`<StrictMode>` is a component that you can use for preparing for react upgrades. In short it turns on deprecation warnings and highlights potential problems in an application. There's no visible UI, but instead it activates additional checks and warnings for its descendents.
+
+In a fresh CRA project, `App` is wrapped in `StrictMode` like so:
+```
+import { StrictMode } from 'react';
+
+//... component code and imports
+ReactDOM.render(<StrictMode><App /></StrictMode>, appRoot);
+```
+
+Strict mode is updated with each version of React, and can help prepare for upcoming features, experimental features that are in use, and deprecations.
+
+  - Identifying components with unsafe lifecycles
+  - Warning about legacy string ref API usage
+  - Warnings about deprecated findDOMNode usage
+  - Detecting legacy context API and unexpected side effects
+
 ### ECMAScript Tips & Tricks
 #### Arrow Functions & Implicit Returns
 #### Object Destructuring & Props
