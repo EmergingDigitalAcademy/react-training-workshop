@@ -463,6 +463,32 @@ There are some other special cases (like accessing tagging a functional componen
 You can also forward references between components using the special `forwardRef` API.
 
 ### Error Boundaries
+
+Error Boundaries are a feature that allow a component to catch thrown errors of its children through the `componentDidCatch` lifecycle method. Currently there is no hook equivalent, so Error Boundaries can only be used in class components (but all children can of course be functional or class components). The biggest advantage of Error Boundaries is that a crash that occurs during the render lifecycle will no longer cause a blank page to be rendered, but instead the error can be caught and a friendly error message can be shown to the user.
+
+A simple example of Error Boundary Higher Order Component:
+
+```
+class ErrorBoundary extends React.Component {
+  state = { hasError: false };
+
+  componentDidCatch(error, errorInfo) {
+    // You can also log the error to an error reporting service
+    this.setState({ hasError: true });
+    logErrorToMyService(error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children; 
+  }
+}
+```
+
 ### StrictMode
 
 `<StrictMode>` is a component that you can use for preparing for react upgrades. In short it turns on deprecation warnings and highlights potential problems in an application. There's no visible UI, but instead it activates additional checks and warnings for its descendents.
@@ -484,16 +510,73 @@ Strict mode is updated with each version of React, and can help prepare for upco
 
 ### ECMAScript Tips & Tricks
 #### Arrow Functions & Implicit Returns
+
+Arrow functions do not mess with `this`, so they do not need to be bound using `this.bind` with class components. They also can use implicit returns which is nice for compact code.
+
+```
+const cats = animalsArray.filter(function(animal) {
+   return animal.type === 'cat'
+});
+```
+
+can become:
+
+```
+const cats = animalsArray.filter(animal => animal.type === 'cat');
+```
+
+This also works great when mapping over arrays to create JSX output:
+```
+function CatsList = (catsArray) => (
+  <ul>
+    {catsArray.map(cat => <li>{cat.name}</li>)}
+  </ul>
+);
+```
+
 #### Object Destructuring & Props
+
+Using object destructuring to pop out props is a handy trick and adds to readability:
+
+```
+const myComponent = (props) => {
+   const catsArray = props.catsArray;
+   return <ChildComponent arrayToShow={catsArray} {...props} />
+}
+```
+
+becomes
+
+```
+const myComponent = (props) => {
+   const { catsArray } = props;
+   return <ChildComponent arrayToShow={catsArray} {...props} />
+}
+```
+
+with implicit return: 
+
+```
+const myComponent = ({catsArray, ...theRest}) => <ChildComponent array1={catsArray} {...theRest} />
+```
+
 #### Array Destructuring
-#### Spread Operator
-#### Nullisch Coelescing Operator
+
+Array destructuring works the same way. Very useful with `useState`:
+
+```
+const [x, y] = [1, 2]; // x is 1, y is 2
+```
+
+```
+const [state, setState] = useState(0); // useState returns an array of 2 things: a value and a setter function
+```
+
 #### Optional Chaining Operator
-### Misc. Tips
-#### Multiple return lines wrapped in parenthesis
-#### Naming conventions: PascalCase for components, camelCase for instances. CamelCase for props.
-#### Import Order (Built-In, External, Internal)
-#### Dont use reserved props (like className)
-#### Double Quotes (JSX) vs Single Quotes (regular JS)
-#### Self-closing tags for components that do not have children
-#### Webpack Tree Shaking
+
+Optional chaining operator nice for walking through objects that may not have expected nested structure. It's useful when combined with the nullish coelescing operator too.
+
+```
+let human = { name: 'blaine' };
+console.log(human?.favoriteFood ?? 'pizza'); // logs 'pizza'
+```
