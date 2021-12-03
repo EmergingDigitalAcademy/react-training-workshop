@@ -229,8 +229,7 @@ Typically `React.memo` makes sense when:
   - The component is large enough to warrant optimization, where a a shallow props comparison with `memo` may be faster than rendering the entire component.
 
 Here's an example:
-```
-
+``` javascript
 const Movie = ({ title }) => (
   <h1>{title}</h1>
 );
@@ -468,7 +467,7 @@ Error Boundaries are a feature that allow a component to catch thrown errors of 
 
 A simple example of Error Boundary Higher Order Component:
 
-```
+``` javascript
 class ErrorBoundary extends React.Component {
   state = { hasError: false };
 
@@ -494,7 +493,7 @@ class ErrorBoundary extends React.Component {
 `<StrictMode>` is a component that you can use for preparing for react upgrades. In short it turns on deprecation warnings and highlights potential problems in an application. There's no visible UI, but instead it activates additional checks and warnings for its descendents.
 
 In a fresh CRA project, `App` is wrapped in `StrictMode` like so:
-```
+``` javascript
 import { StrictMode } from 'react';
 
 //... component code and imports
@@ -513,7 +512,7 @@ Strict mode is updated with each version of React, and can help prepare for upco
 
 Arrow functions do not mess with `this`, so they do not need to be bound using `this.bind` with class components. They also can use implicit returns which is nice for compact code.
 
-```
+``` javascript
 const cats = animalsArray.filter(function(animal) {
    return animal.type === 'cat'
 });
@@ -521,12 +520,12 @@ const cats = animalsArray.filter(function(animal) {
 
 can become:
 
-```
+``` javascript
 const cats = animalsArray.filter(animal => animal.type === 'cat');
 ```
 
 This also works great when mapping over arrays to create JSX output:
-```
+``` javascript
 function CatsList = (catsArray) => (
   <ul>
     {catsArray.map(cat => <li>{cat.name}</li>)}
@@ -538,7 +537,7 @@ function CatsList = (catsArray) => (
 
 Using object destructuring to pop out props is a handy trick and adds to readability:
 
-```
+``` javascript
 const myComponent = (props) => {
    const catsArray = props.catsArray;
    return <ChildComponent arrayToShow={catsArray} {...props} />
@@ -547,7 +546,7 @@ const myComponent = (props) => {
 
 becomes
 
-```
+``` javascript
 const myComponent = (props) => {
    const { catsArray } = props;
    return <ChildComponent arrayToShow={catsArray} {...props} />
@@ -556,7 +555,7 @@ const myComponent = (props) => {
 
 with implicit return: 
 
-```
+``` javascript
 const myComponent = ({catsArray, ...theRest}) => <ChildComponent array1={catsArray} {...theRest} />
 ```
 
@@ -564,11 +563,11 @@ const myComponent = ({catsArray, ...theRest}) => <ChildComponent array1={catsArr
 
 Array destructuring works the same way. Very useful with `useState`:
 
-```
+``` javascript
 const [x, y] = [1, 2]; // x is 1, y is 2
 ```
 
-```
+``` javascript
 const [state, setState] = useState(0); // useState returns an array of 2 things: a value and a setter function
 ```
 
@@ -576,7 +575,7 @@ const [state, setState] = useState(0); // useState returns an array of 2 things:
 
 Optional chaining operator nice for walking through objects that may not have expected nested structure. It's useful when combined with the nullish coelescing operator too.
 
-```
+``` javascript
 let human = { name: 'blaine' };
 console.log(human?.favoriteFood ?? 'pizza'); // logs 'pizza'
 ```
