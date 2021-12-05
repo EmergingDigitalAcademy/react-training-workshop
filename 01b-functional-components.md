@@ -59,7 +59,7 @@ function CatsList({ catsArray }) {
 In general it's nice to keep functional components as function declarations rather than named anonymous arrow functions. This
 depends on your team's style guide of course:
 
-```
+``` javascript
 // good
 function myComponent(props) {
    return <h1>Hello World</h1>
@@ -68,3 +68,15 @@ function myComponent(props) {
 // fun idea, but not may not meet style guidelines
 const myComponent = (props) => <h1>Hello World</h1>
 ```
+
+## Converting class components to functional components
+
+Converting from a class-based component to a functional component is a fun exercise. There are several layers of difficulty:
+  - If a class component only has a `render` method (no state, no lifecycle components), the conversion is as simple because the render function IS the functional component. Simply drop the class component definition and rename `render()` to `function myComponent(props) { ...`, then replace `this.props` with `props` (or use object destructuring as mentioned above
+  - To replace local state, use `useState`: `const [state, setState] = useState(DEFAULT_STATE);`. In this simple example, `this.state` is now just `state` and `this.setState` has been replaced with `setState`. Be sure to pass in your default state as the first argument to `useState`.
+  - To replace `componentDidMount`, use `useEffect` with an empty dependency argument `useEffect(() => {}, []);`. The body of `useEffect` will be run only after the first render.
+  - To replace `componentWillUnmount`, use `useEffect`'s return value. The function returned from `useEffect` will be run when the effect is cleaned up (so in the case of an empty dependency list, this will automatically happen on component unmount.
+  - Similarly, `componentDidUpdate` can be replaced with `useEffect` as well. The effect will run if anything in the dependency list is updated. `useEffect(() => {}, [someValue]);` will run whenever `someValue` changes. If `someValue1` is local state that the render uses, this will automatically work as expected.
+  - To replace `shouldComponentUpdate`, `React.memo` handles most cases where new props are simply shallow compared to existing props. For more control, the second argument to `React.memo` is a function that has the same behavior as `shouldComponentUpdate`: it takes the new props and old props as arguments, and returns true if the memoization cache should be busted.
+
+See the [Hooks FAQ](https://reactjs.org/docs/hooks-faq.html#how-do-lifecycle-methods-correspond-to-hooks) for more info, expecially the section on ["How do lifecycle methods correspond to hooks?" question](https://reactjs.org/docs/hooks-faq.html);
