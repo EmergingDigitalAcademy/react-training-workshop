@@ -1,1 +1,1 @@
-# useState, functional components
+# Managing state with functional components
