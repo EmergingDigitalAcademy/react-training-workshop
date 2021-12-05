@@ -9,7 +9,8 @@ To start, consider the following simple component:
 function App () {
     return (
         <main>
-            <p>Hello! My name is Luke.</p>
+            <h1>React Local State</h1>
+            Hello! My name is Blaine.
             <button>Click me!</button>
             <p>I've clicked the button 0 times.</p>
         </main>;
@@ -17,6 +18,7 @@ function App () {
 }
 ```
 
+Let's use `useState` to create two pieces of local state, one to track the `name` and one to track the click count.
 ## React State
 
 The pattern for useState:
@@ -38,11 +40,9 @@ let changeMyThing = whatUseStateReturns[1];
 You get a state variable at index 0, and a function for how to change that state variable at index 1.
 
 As written, you could read this as 
-
 "Make two variables, grabbing the first thing out of the array and call it name, and grab the second thing out of the array and call it setName"
-
 With useState -- the first thing in the array is ALWAYS the variable and the second thing is ALWAYS a function that sets that variable.
-
+   
 
 ```jsx
 import { useState } from 'react';
@@ -103,3 +103,22 @@ function App () {
 ```
 
 If you need to set default state to something that is available after the first render (like data from an upstream async fetch), you can use `useEffect` to update state at a later time (see the notes on `useEffect)`.
+
+If we wanted to track both pieces of state inside one object, care must be taken to ensure state is set to a new object instance so that the react update cycle is triggered. The spread operator can help with this. Example:
+
+```jsx
+import { useState } from 'react';
+
+function App () {
+    const [state, setState] = useState({ name: 'Blaine', count: 0 });
+
+    return (
+        <main>
+            <h1>React Local State</h1>
+            Hello! My name is {state.name}.
+            <button onClick={() => setState({ ...state, count: count+1)}>Click me!</button>
+            <p>I've clicked the button {state.count} times.</p>
+        </main>;
+    )
+}
+```
