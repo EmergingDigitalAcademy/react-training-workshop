@@ -220,7 +220,7 @@ React is smart enough to compare the output of a component to what's already on 
 
 When working with class-based components, one can choose to inherit from `React.PureComponent` instead of `React.Component`. A pure component is one that will not automatically update if props and state have not changed. A shallow comparison is used to determine this, and `shouldComponentUpdate` is not implemented. This leads to dramatic performance enhancements in many cases.
 
-In modern react, functional components with hooks fix most of the easy 'gotchas' that can lead to the kinds of react lifecycle performance issues that `PureComponent` was designed to address. `React.memo` can be can be used to wrap functional components to prevent re-renders when props dont change between parent updates, as the component is only re-rendered if props are found to have changed after running a shallow comparison.
+In modern react, functional components with hooks fix most of the easy 'gotchas' that can lead to the kinds of react lifecycle performance issues that `PureComponent` was designed to address. `React.memo` is a Higher Order Component (HOC) that can be can be used to wrap functional components to prevent re-renders when props dont change between parent updates, as the component is only re-rendered if props are found to have changed after running a shallow comparison.
 
 Typically `React.memo` makes sense when:
   - The component is pure (given the same props, the component *always* renders the same output)
@@ -275,6 +275,15 @@ const Movie = ({ title }) => (
 const MemoizedMovie = memo(Movie);
 // or: export default memo(Movie);
 ```
+
+There is also the `useMemo` hook, which has the same functionality as `React.memo`, but it can be used for arbitrary functions (including components).
+
+```
+const func = useMemo(() => updateValue(), [someVal]);
+```
+
+The above memoized function will only call `updateValue` when the value of `someVal` has changed, otherwise it will return the cached output.
+
 
 ### React Fragments and JSX Transform (new)
 
