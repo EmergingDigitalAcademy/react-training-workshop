@@ -1,21 +1,18 @@
-# Managing state with functional components
-
 # React Local State with Hooks
 
 ## Getting started
-https://github.com/PrimeAcademy/react-state-starter
 
-Let's open up `src/App.jsx`.
+To start, consider the following simple component:
+
 ```jsx
 
 function App () {
-
     return (
-        <div className="App">
+        <main>
             <p>Hello! My name is Luke.</p>
             <button>Click me!</button>
             <p>I've clicked the button 0 times.</p>
-        </div>;
+        </main>;
     )
 }
 ```
@@ -58,12 +55,12 @@ function App () {
     const [count, setCount] = useState(0);
 
     return (
-        <>
+        <main>
             <h1>React Local State</h1>
             Hello! My name is {name}.
             <button onClick={() => setCount(count + 1)}>Click me!</button>
             <p>I've clicked the button {count} times.</p>
-        </>;
+        </main>;
     )
 }
 
@@ -95,12 +92,12 @@ function App () {
     const [count, setCount] = useState(() => 0);
 
     return (
-        <>
+        <main>
             <h1>React Local State</h1>
             Hello! My name is {name}.
             <button onClick={() => setCount(count + 1)}>Click me!</button>
             <p>I've clicked the button {count} times.</p>
-        </>;
+        </main>;
     )
 }
 ```
