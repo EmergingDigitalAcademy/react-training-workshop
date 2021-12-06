@@ -29,7 +29,7 @@ Tentative Topics (to be broken down by schedule)
 ### Day 1 (Tuesday)
   - 8:00am-8:30am Ice Breaker
   - 8:30am-10:00am Overview: CRA, JSX, ECAMAScript2021, react best practices, eslint configuration, naming conventions (BLAINE)
-  - 10:00am-12:00pm What's new with React? Portals, Fragments, Memo, StrictMode, context API, JSX Transform (`Code Along w/ GitHub Manager`) (JARYD)
+  - 10:00am-12:00pm What's new with React? Proptypes, Portals, Fragments, Memo, StrictMode, context API, JSX Transform (`Code Along w/ GitHub Manager`) (JARYD)
   - 12:00pm-1:00pm Lunch
   - 1:00pm-2:00pm Review of Functional Components & Intro to Hooks (`useState`) (Code along: Convert click counter to functional w/ hooks) (BLAINE)
   - 2:00pm-3:00pm Managing the React LifeCycle (`useEffect`) (Code along: Building a Bookstore) (BLAINE)
