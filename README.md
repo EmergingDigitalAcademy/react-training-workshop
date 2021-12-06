@@ -28,40 +28,38 @@ Tentative Topics (to be broken down by schedule)
 
 ### Day 1 (Tuesday)
   - 8:00am-8:30am Ice Breaker
-  - 8:30am-10:00am Overview: CRA, JSX, ECAMAScript2021, react best practices, eslint configuration, naming conventions (BLAINE)
-  - 10:00am-12:00pm What's new with React? Proptypes, Portals, Fragments, Memo, StrictMode, context API, JSX Transform (`Code Along w/ GitHub Manager`) (JARYD)
+  - 8:30am-12:00am What's new with React? Proptypes, Portals, Error Boundaries, Refs, Fragments, Memo, StrictMode (`Code Along w/ GitHub Manager`) (BLAINE/JARYD)
   - 12:00pm-1:00pm Lunch
-  - 1:00pm-2:00pm Review of Functional Components & Intro to Hooks (`useState`) (Code along: Convert click counter to functional w/ hooks) (BLAINE)
+  - 1:00pm-1:30pm Review of Functional Components & Intro to Hooks (`useState`) (Code along: Convert click counter to functional w/ hooks) (BLAINE)
+  - --> optional: convert a component to functional in `GitHub Manager` app
   - 2:00pm-3:00pm Managing the React LifeCycle (`useEffect`) (Code along: Building a Bookstore) (BLAINE)
   - 3:00pm-4:00pm **Practice Assignment 1 (Famous People w/ LiveSolve)**
 
 ### Day 2 (Wednesday)
   - 8:00am-8:30am Ice Breaker & Review
-  - 8:30am-9:30am Intro to React Router (declarative routing, HashRouter, NavLink) (Code along: Bookstore Details View) (JARYD)
+  - 8:30am-9:30am Intro to React Router (declarative routing, HashRouter, NavLink) (Code along: Bookstore Details View, two details buttons) (JARYD)
   - 9:30am-10:30am React Router (`withRouter`, `useHistory`, `useParams`) (JARYD)
   - 9:30am (BLAINE ONLY) Fortran Class 9:30am-10:30am
-  - 11:00am-12:00pm Intro to Redux (reducers, store, actions, constants) (BLAINE)
+  - 11:00am-12:00pm Intro to Redux (reducers, store, actions, constants) (BLAINE) (Code Along: Bookstore Redux) 
   - 12:00pm-1:00pm Lunch
-  - 1:00-2:00pm Intro to Redux (connected components, `useSelector`) (Code Along: Bookstore Redux) (BLAINE)
-  - 2:00pm-3:00pm Intro to Redux Sagas (Code Along: Bookstore Redux) (BLAINE)
-  - 3:00pm-4:00pm **Practice Assignment 2 (Baseball Pitchers?)**
+  - 1:00-2:00pm Intro to Redux (connected components, `useSelector`) (BLAINE/JARYD)
+  - 2:00pm-3:00pm Intro to Redux Sagas (Code Along: Bookstore Redux) (BLAINE/JARYD)
+  - 3:00pm-4:00pm **Practice Assignment 2 (Baseball Pitchers)**
 
 ### Day 3 (Thursday)
   - 8:00am-8:30am Ice Breaker & Review
   - 8:30am-10:00am Intro to Testing (component testing, jest, `act`, etc) (JARYD)
-  - 8:30am-10:00am Testing Continued (JARYD)
-  - 10:00am-11:00am Testing Continued (react router, redux, coverage testing, etc) (JARYD)
-  - 11:00am-12:00pm Testing Continued (JARYD)
+  - 10:00am-11:00am Testing `GitHub Manager` project (JARYD)
+  - 11:00am-12:00pm Testing Continued (react router, redux, coverage testing, etc) (JARYD/BLAINE)
   - 12:00pm-1:00pm Lunch
-  - 1:00pm-2:00pm Testing Continued (JARYD)
-  - 2:00pm-3:00pm Testing Continued (JARYD)
+  - 1:00pm-2:00pm Testing `Baseball Pitchers` project (JARYD/BLAINE)
+  - 2:00pm-3:00pm Continuous Integration Setup (`Baseball Pitchers`) (JARYD)
   - 2:00pm (BLAINE ONLY) Fortran Class 2:00pm-3:00pm
-  - 3:00pm-4:00pm Practice Assignment 4 (component testing)
+  - 3:00pm-4:00pm Practice Assignment 4 (Add testing to `Bookstore`)
 
 ### Day 4 (Monday)
   - 8:00am-8:30am Ice Breaker & Review
-  - 8:30am-10:00am Intro to Continuous Integration (JARYD)
-  - 10:00am-12:00pm Jenkins, Deployment, etc. (JARYD)
+  - 8:30am-12:00pm Deep Dive into Continuous Integration & Deployment Testing (JARYD)
   - 12:00pm-1:00pm Lunch
   - 1:00pm-2:00pm Workshop Time (talk through local project strategy)
   - 2:00pm-4:00pm Workshop Time (talk through local project strategy)
