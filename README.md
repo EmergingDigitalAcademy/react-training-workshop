@@ -1,5 +1,11 @@
 # React Training Workshop (WIP)
 
+Projects:
+  - [React BookShelf](https://github.com/EmergingDigitalAcademy/react-workshop-bookstore) -- includes 4 functioning project checkpoints (see README)
+  - [GitHub Manager](https://github.com/EmergingDigitalAcademy/react-training-1) -- demo app with lots of goodies by Jaryd
+  - [Famous People]() -- assignment to practice hooks (no redux)
+  - [Baseball Pitchers]() -- assignment to practice redux
+
 Tentative Topics (to be broken down by schedule)
 
 #### React 15 Upgrade Path
@@ -30,20 +36,20 @@ Tentative Topics (to be broken down by schedule)
   - 8:00am-8:30am Ice Breaker
   - 8:30am-12:00am What's new with React? Proptypes, Portals, Error Boundaries, Refs, Fragments, Memo, StrictMode (`Code Along w/ GitHub Manager`) (BLAINE/JARYD)
   - 12:00pm-1:00pm Lunch
-  - 1:00pm-1:30pm Review of Functional Components & Intro to Hooks (`useState`) (Code along: Convert click counter to functional w/ hooks) (BLAINE)
+  - 1:00pm-1:30pm Review of Functional Components & Intro to Hooks (`useState`) (Code along: Convert click counter from CRA to functional w/ hooks) (BLAINE)
   - --> optional: convert a component to functional in `GitHub Manager` app
-  - 2:00pm-3:00pm Managing the React LifeCycle (`useEffect`) (Code along: Building a Bookstore) (BLAINE)
+  - 2:00pm-3:00pm Managing the React LifeCycle (`useEffect`) (Code along: Building a Bookstore: master to step1) (BLAINE)
   - 3:00pm-4:00pm **Practice Assignment 1 (Famous People w/ LiveSolve)**
 
 ### Day 2 (Wednesday)
   - 8:00am-8:30am Ice Breaker & Review
-  - 8:30am-9:30am Intro to React Router (declarative routing, HashRouter, NavLink) (Code along: Bookstore Details View, two details buttons) (JARYD)
+  - 8:30am-9:30am Intro to React Router (declarative routing, HashRouter, NavLink) (Code along: Bookstore Details View: step1 to step2) (JARYD)
   - 9:30am-10:30am React Router (`withRouter`, `useHistory`, `useParams`) (JARYD)
   - 9:30am (BLAINE ONLY) Fortran Class 9:30am-10:30am
-  - 11:00am-12:00pm Intro to Redux (reducers, store, actions, constants) (BLAINE) (Code Along: Bookstore Redux) 
+  - 11:00am-12:00pm Intro to Redux (reducers, store, actions, constants) (BLAINE) (Code Along: Bookstore: step2 to step3, minus sagas) 
   - 12:00pm-1:00pm Lunch
   - 1:00-2:00pm Intro to Redux (connected components, `useSelector`) (BLAINE/JARYD)
-  - 2:00pm-3:00pm Intro to Redux Sagas (Code Along: Bookstore Redux) (BLAINE/JARYD)
+  - 2:00pm-3:00pm Intro to Redux Sagas (Code Along: Bookstore: step3 completion (with sagas)) (BLAINE/JARYD)
   - 3:00pm-4:00pm **Practice Assignment 2 (Baseball Pitchers)**
 
 ### Day 3 (Thursday)
