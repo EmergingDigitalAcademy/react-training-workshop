@@ -3,8 +3,8 @@
 Projects:
   - [React BookShelf](https://github.com/EmergingDigitalAcademy/react-workshop-bookstore) -- includes 4 functioning project checkpoints (see README)
   - [GitHub Manager](https://github.com/EmergingDigitalAcademy/react-training-1) -- demo app with lots of goodies by Jaryd
-  - [Famous People]() -- assignment to practice hooks (no redux)
-  - [Baseball Pitchers]() -- assignment to practice redux
+  - [Famous People](https://github.com/EmergingDigitalAcademy/react-workshop-famous-people) -- assignment to practice hooks (no redux) (`solution` branch exists)
+  - [Baseball Pitchers](https://github.com/EmergingDigitalAcademy/react-workshop-redux-pitchers) -- assignment to practice redux (`solution` branch exists)
 
 Tentative Topics (to be broken down by schedule)
 
