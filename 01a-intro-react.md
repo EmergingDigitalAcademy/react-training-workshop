@@ -586,5 +586,5 @@ Optional chaining operator nice for walking through objects that may not have ex
 
 ``` javascript
 let human = { name: 'blaine' };
-console.log(human?.favoriteFood ?? 'pizza'); // logs 'pizza'
+console.log(human?.favorites?.favoriteFood ?? 'pizza'); // logs 'pizza'
 ```
